@@ -15,10 +15,18 @@ export const Accepted = () => {
         <input 
           className="text-sm border text-center w-28 border-red-400 text-red-400 font-semibold"
           type="time" 
-          required
           onChange={(e) => setTime(e.target.value)} 
         />
-        <CustomButton label="(˶˃ ᵕ ˂˶) SET DATE" onClick={() => navigate("/food-selection", { state: {time}})}/> 
+        <CustomButton 
+          label="(˶˃ ᵕ ˂˶) CLICK HERE" 
+          onClick={() => {
+            if (!time) {
+              alert("Please select a time before proceeding!");
+              return;
+            }
+            navigate("/food-selection", { state: { time } });
+          }} 
+        /> 
       </div>
 
       <div 
